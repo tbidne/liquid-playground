@@ -1,0 +1,45 @@
+name:                liquid-playground
+version:             0.1.0.0
+github:              "tbidne/liquid-playground"
+license:             BSD3
+author:              "Thomas Bidne"
+maintainer:          "tbidne@gmail.com"
+copyright:           "2020 Thomas Bidne"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+description:         Please see the README on GitHub at <https://github.com/tbidne/liquid-playground#readme>
+
+dependencies:
+- liquid-containers
+- liquid-base == 4.14.1.0
+- liquidhaskell == 0.8.10.2
+
+ghc-options:
+- -fplugin=LiquidHaskell
+- -O2
+- -Wall
+- -Wpartial-fields
+- -Wmissing-home-modules
+- -Widentities
+- -Wmissing-export-lists
+- -Wcompat
+- -Wredundant-constraints
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+
+library:
+  source-dirs: src
+
+executables:
+  liquid-pg:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - liquid-playground

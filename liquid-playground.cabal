@@ -1,0 +1,56 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 3d4814b86d2a8b54400872e46d41c7f3aa3552b76a2e5862f2e1d2715952e15a
+
+name:           liquid-playground
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/tbidne/liquid-playground#readme>
+homepage:       https://github.com/tbidne/liquid-playground#readme
+bug-reports:    https://github.com/tbidne/liquid-playground/issues
+author:         Thomas Bidne
+maintainer:     tbidne@gmail.com
+copyright:      2020 Thomas Bidne
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/tbidne/liquid-playground
+
+library
+  exposed-modules:
+      Data.IncList
+      Data.IncList.Internal
+      InsertionSort
+  other-modules:
+      Paths_liquid_playground
+  hs-source-dirs:
+      src
+  ghc-options: -fplugin=LiquidHaskell -O2 -Wall -Wpartial-fields -Wmissing-home-modules -Widentities -Wmissing-export-lists -Wcompat -Wredundant-constraints -Wincomplete-record-updates -Wincomplete-uni-patterns
+  build-depends:
+      liquid-base ==4.14.1.0
+    , liquid-containers
+    , liquidhaskell ==0.8.10.2
+  default-language: Haskell2010
+
+executable liquid-pg
+  main-is: Main.hs
+  other-modules:
+      Paths_liquid_playground
+  hs-source-dirs:
+      app
+  ghc-options: -fplugin=LiquidHaskell -O2 -Wall -Wpartial-fields -Wmissing-home-modules -Widentities -Wmissing-export-lists -Wcompat -Wredundant-constraints -Wincomplete-record-updates -Wincomplete-uni-patterns -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      liquid-base ==4.14.1.0
+    , liquid-containers
+    , liquid-playground
+    , liquidhaskell ==0.8.10.2
+  default-language: Haskell2010
